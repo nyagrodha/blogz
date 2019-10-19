@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<h1>Add a New Post</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flshes id="error">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<form method="POST">
+    <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="{{ new_title }}"">
+    <label for="body">Body</label>
+        <textarea rows="20" name="body" id="body">{{ new_body }}</textarea>
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

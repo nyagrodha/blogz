@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blogz</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Blogz: The Revenge</h1>
+            <h2>LC101 - Unit 2</h2>
+        </div>
+    </div>
+
+    <nav>
+        <ul class="left">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">ALl Posts</a></li>
+            <li><a href="/newpost">Create Post</a></li>
+        </ul>
+
+        {% if "user" in  session %}
+            <ul class="right">
+                <li><a href="/logout">Log Out</a>></li>
+            </ul>
+
+        {% else %}
+            <ul class="right">
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+            </ul>
+        {% endif %}
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer></footer>
+</body>
+
+</html>
